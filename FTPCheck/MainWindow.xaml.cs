@@ -220,6 +220,7 @@ namespace FTPCheck
             USER = user.Text;
             PASSWORD = password.Password;
             CURRENT = new Dictionary<string, string>();
+            ITEM_CACHE = new Dictionary<string, string>();
             try
             {
                 DELAY = int.Parse(delay.Text);
