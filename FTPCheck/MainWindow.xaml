@@ -1,0 +1,28 @@
+﻿<Window x:Name="FTPCheck" x:Class="FTPCheck.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FTPCheck"
+        mc:Ignorable="d"
+        Title="FTPサーバー上のファイルの状態をチェックするよ" Height="500" Width="800">
+    <Grid Margin="0,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="サーバーURL" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
+        <TextBox x:Name="server_url" HorizontalAlignment="Left" Height="24" Margin="168,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,45,0,0" TextWrapping="Wrap" Text="ポート番号" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
+        <TextBox x:Name="port" HorizontalAlignment="Left" Height="24" Margin="168,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="ユーザー" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
+        <TextBox x:Name="user" HorizontalAlignment="Left" Height="24" Margin="168,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="パスワード" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
+        <PasswordBox x:Name="password" HorizontalAlignment="Left" Height="24" Margin="168,91,0,0" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic" />
+        <TextBlock HorizontalAlignment="Left" Margin="10,120,0,0" TextWrapping="Wrap" Text="ベースフォルダ" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
+        <TextBox x:Name="base_dir" HorizontalAlignment="Left" Height="24" Margin="168,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20" Text="確認間隔（分）"/>
+        <TextBox x:Name="delay" HorizontalAlignment="Left" Height="24" Margin="168,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
+        <Button x:Name="prepare_button" Content="初回設定" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="137" FontSize="20" FontFamily="BIZ UDGothic" Click="prepare_button_Click"/>
+        <Button x:Name="execute_button" Content="確認開始" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="137" FontSize="20" FontFamily="BIZ UDGothic" Click="execute_button_Click" Visibility="Hidden"/>
+        <Button x:Name="cancel_button" Content="キャンセル" HorizontalAlignment="Left" Margin="168,171,0,0" VerticalAlignment="Top" Width="137" FontSize="20" FontFamily="BIZ UDGothic" Click="cancel_button_Click" Visibility="Hidden"/>
+        <TextBox x:Name="log_text" Margin="11,200,10,10" TextWrapping="Wrap" Text="" FontSize="18" FontFamily="BIZ UDPGothic" VerticalScrollBarVisibility="Auto" IsReadOnly="true"/>
+        <Button x:Name="clear_button" Content="ログクリア" HorizontalAlignment="Left" Margin="329,171,0,0" VerticalAlignment="Top" Width="137" FontSize="20" FontFamily="BIZ UDGothic" Click="clear_button_Click" Visibility="Hidden"/>
+    </Grid>
+</Window>
