@@ -1,6 +1,6 @@
-﻿using System;
+﻿using FTPCheck.Utils;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -36,6 +36,18 @@ namespace FTPCheck
         public MainWindow()
         {
             InitializeComponent();
+            // 設定があれば読み出し
+            IniFile ini = new IniFile("./ftp_check.ini");
+            String url_ini = ini["setting", "url"];
+            String port_ini = ini["setting", "port"];
+            String user_ini = ini["setting", "user"];
+            String target_dir_ini = ini["setting", "target_dir"];
+            String delay_ini = ini["setting", "delay"];
+            server_url.Text = url_ini;
+            port.Text = port_ini;
+            user.Text = user_ini;
+            base_dir.Text = target_dir_ini;
+            delay.Text = delay_ini;
         }
 
         private async void execute_button_Click(object sender, RoutedEventArgs e)
@@ -57,7 +69,7 @@ namespace FTPCheck
                 }
                 catch (Exception ex)
                 {
-                    WriteLog($"ダメっす。 {ex.Message}");
+                    WriteLog($"エラーが発生しました。 {ex.Message}");
                 }
             }
             if (isCanceled)
@@ -237,15 +249,22 @@ namespace FTPCheck
             }
             catch (Exception ex)
             {
-                WriteLog($"ダメっす。 {ex.Message}");
+                WriteLog($"エラーが発生しました。 {ex.Message}");
             }
             prepare_button.IsEnabled = true;
+            // iniファイルに設定を書き出し
+            IniFile ini = new IniFile("./ftp_check.ini");
+            ini["setting", "url"] = URL;
+            ini["setting", "port"] = PORT.ToString();
+            ini["setting", "user"] = USER;
+            ini["setting", "target_dir"] = TARGET_DIR;
+            ini["setting", "delay"] = DELAY.ToString();
         }
 
         private void cancel_button_Click(object sender, RoutedEventArgs e)
         {
             cancel_button.IsEnabled = false;
-            WriteLog("待機が終わるまでキャンセルできないのでしばしお待ちを");
+            WriteLog("待機が終わるまでキャンセルできないのでお待ちいただくかウインドウを閉じてもらっても大丈夫です");
             if (this.cts == null) return;
 
             cts.Cancel();

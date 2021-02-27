@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FTPCheck"
         mc:Ignorable="d"
-        Title="FTPサーバー上のファイルの状態をチェックするよ" Height="500" Width="800">
+        Title="FTPファイルチェックツール" Height="500" Width="800">
     <Grid Margin="0,0,0,0">
         <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="サーバーURL" VerticalAlignment="Top" FontFamily="BIZ UDPGothic" FontSize="20"/>
         <TextBox x:Name="server_url" HorizontalAlignment="Left" Height="24" Margin="168,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="368" FontSize="16" FontFamily="BIZ UDGothic"/>
